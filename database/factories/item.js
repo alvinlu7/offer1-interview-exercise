@@ -8,7 +8,9 @@ module.exports = {
     
     for(let i = 0; i < names.length; i++){
       data.push({
-        name: names[i]
+        name: names[i],
+        createdAt: new Date(),
+        updatedAt: new Date()
       })
     }
 

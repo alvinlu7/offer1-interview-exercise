@@ -11,7 +11,9 @@ module.exports = {
         phone: faker.phone.phoneNumber(),
         email: faker.internet.email(),
         officerName: faker.name.findName(),
-        addressId: Math.floor(Math.random() * ROWS_TO_CREATE + 1)
+        addressId: Math.floor(Math.random() * ROWS_TO_CREATE + 1),
+        createdAt: new Date(),
+        updatedAt: new Date()
       })
     }
 

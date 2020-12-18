@@ -18,7 +18,9 @@ module.exports = {
         ownerType: ownerType[Math.floor(Math.random()*ownerType.length)],
         primaryImageUrl: faker.image.city(),
         ownerId: Math.floor(Math.random() * ROWS_TO_CREATE + 1),
-        addressId: Math.floor(Math.random() * ROWS_TO_CREATE + 1)
+        addressId: Math.floor(Math.random() * ROWS_TO_CREATE + 1),
+        createdAt: new Date(),
+        updatedAt: new Date()
       })
     }
 

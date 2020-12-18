@@ -7,6 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     numberBaths: DataTypes.INTEGER,
     description: DataTypes.TEXT,
     ownerType: DataTypes.STRING,
+    primaryImageUrl: DataTypes.STRING,
     ownerId: DataTypes.INTEGER,
     addressId: DataTypes.INTEGER
   }, {});

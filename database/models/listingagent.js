@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'listingAgentId',
       as: 'listings'
     })
+    listingAgent.belongsTo(models.user, {
+      foreignKey: 'userId',
+      as: 'user'
+    })
   };
   return listingAgent;
 };

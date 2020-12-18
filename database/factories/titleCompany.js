@@ -6,7 +6,9 @@ module.exports ={
     
     for(let i = 0; i < ROWS_TO_CREATE; i++){
       data.push({
-        companyId: Math.floor(Math.random() * ROWS_TO_CREATE + 1)
+        companyId: Math.floor(Math.random() * ROWS_TO_CREATE + 1),
+        createdAt: new Date(),
+        updatedAt: new Date()
       })
     }
 

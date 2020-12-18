@@ -11,7 +11,9 @@ module.exports = {
         addressLine2: Math.random() * 5 > 3 ? faker.address.secondaryAddress() : null,
         city: faker.address.city(),
         state: faker.address.city(),
-        zip: faker.address.zipCode()
+        zip: faker.address.zipCode(),
+        createdAt: new Date(),
+        updatedAt: new Date()
       })
     }
   

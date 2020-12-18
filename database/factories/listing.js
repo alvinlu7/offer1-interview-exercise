@@ -14,6 +14,8 @@ module.exports ={
         escrowCompanyId: Math.floor(Math.random() * ROWS_TO_CREATE + 1),
         titleCompanyId: Math.floor(Math.random() * ROWS_TO_CREATE + 1),
         listingAgentId: Math.floor(Math.random() * ROWS_TO_CREATE + 1),
+        createdAt: new Date(),
+        updatedAt: new Date()
       })
     }
     

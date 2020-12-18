@@ -26,6 +26,9 @@ module.exports = {
       ownerType: {
         type: Sequelize.STRING
       },
+      primaryImageUrl: {
+        type: Sequelize.STRING
+      },
       ownerId: {
         type: Sequelize.INTEGER,
         allowNull: false,

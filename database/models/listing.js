@@ -27,11 +27,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'escrowCompanyId',
       as: 'escrowCompany'
     })
-    listing.belongsTo(models.titleCompanyId, {
+    listing.belongsTo(models.titleCompany, {
       foreignKey: 'titleCompanyId',
       as: 'titleCompany'
     })
-    listing.belongsTo(models.listingAgentId, {
+    listing.belongsTo(models.listingAgent, {
       foreignKey: 'listingAgentId',
       as: 'listingAgent'
     })

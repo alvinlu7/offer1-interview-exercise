@@ -9,7 +9,9 @@ module.exports = {
       data.push({
         message: faker.lorem.sentence(),
         senderId: Math.floor(Math.random() * ROWS_TO_CREATE + 1),
-        recieverId: Math.floor(Math.random() * ROWS_TO_CREATE + 1)
+        recieverId: Math.floor(Math.random() * ROWS_TO_CREATE + 1),
+        createdAt: new Date(),
+        updatedAt: new Date()
       })
     }
 

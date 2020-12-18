@@ -11,7 +11,9 @@ module.exports = {
         lastName: faker.name.lastName(),
         email: faker.internet.email(),
         phone: faker.phone.phoneNumber(),
-        online: faker.random.boolean()
+        online: faker.random.boolean(),
+        createdAt: new Date(),
+        updatedAt: new Date()
       })
     }
 

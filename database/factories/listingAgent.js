@@ -9,7 +9,9 @@ module.exports = {
       data.push({
         licenseNumber: faker.random.number(1000000000),
         licenseState: faker.address.state(),
-        userId: Math.floor(Math.random() * ROWS_TO_CREATE + 1)
+        userId: Math.floor(Math.random() * ROWS_TO_CREATE + 1),
+        createdAt: new Date(),
+        updatedAt: new Date()
       })
     }
     
