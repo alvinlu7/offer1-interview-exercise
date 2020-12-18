@@ -9,12 +9,12 @@ module.exports = (sequelize, DataTypes) => {
     listingAgentId: DataTypes.INTEGER
   }, {});
   listing.associate = function(models) {
-    listing.hasMany(models.excludedItems, {
+    listing.hasMany(models.excludedItem, {
       sourceKey: 'id',
       foreignKey: 'listingId',
       as: 'excludedItems'
     })
-    listing.hasMany(models.includedItems, {
+    listing.hasMany(models.includedItem, {
       sourceKey: 'id',
       foreignKey: 'listingId',
       as: 'includedItems'
