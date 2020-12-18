@@ -1,0 +1,123 @@
+const homeState = {
+  homes: {
+    data: [{
+      id: Int
+      photoUrl: String,
+      saved: Boolean,
+      price: Int,
+      address: {
+        addressLine1: String,
+        addressLine2: String
+        city: String,
+        state: String,
+        zip: String
+      },
+      status: String
+    }],
+    loading: boolean
+  },
+  filters: {
+    city: String,
+    priceMin: Int,
+    priceMax: Int,
+    bedroomsMin: Int,
+    bedroomsMax: Int,
+    bathroomsMin: Int,
+    bathroomsMax: Int,
+    sqftMin: Int,
+    sqftMax: Int
+  }
+}
+
+{type: '/homes/getHomes', payload: homes}
+{type: '/homes/toggleSaveHome, payload: id}
+{type: '/filters/setCity', payload: city}
+{type: '/filters/setPrice, payload: {min, max}}
+{type: '/filters/setBedrooms, payload: {min, max}}
+{type: '/filters/setBathrooms, payload: {min, max}}
+{type: '/filters/setSqft, payload: {min, max}}
+
+const detailState = {
+  listingId: Int,
+  saved: boolean,
+  savedCount: Int,
+  property: {
+    state: String,
+    price: Int,
+    propertyType: String,
+    squareFeet: Int,
+    numberBedrooms: Int,
+    numberBaths: Int,
+    description: String,
+    ownerType: String,
+    primaryImageUrl: String,
+    address: {
+      addressLine1: String,
+      addressLine2: String
+      city: String,
+      state: String,
+      zip: String
+    },
+  },
+  owner: {
+    firstName: String,
+    lastName: String,
+    email: String,
+    phone: String,
+    online: Boolean
+  },
+  escrowCompany: {
+    name: String,
+    phone: String,
+    email: String,
+    officerName: String,
+    addressId: Int
+  },
+  titleCompany: {
+    name: String,
+    phone: String,
+    email: String,
+    officerName: String,
+    addressId: Int
+  },
+  listingAgent: {
+    licenseNumber: String,
+    licenseState: String,
+    firstName: String,
+    lastName: String,
+    email: String,
+    phone: String,
+    online: Boolean
+  }
+}
+
+{type: '/details/getDetails', payload: details}
+{type: '/details/saveHome', payload: {saved, savedCount}}
+
+const authState = {
+  loggedIn: boolean
+}
+
+const messageState = {
+  conversations:[
+    {
+      firstName: String,
+      lastName: String,
+      email: String,
+      phone: String,
+      onliine: Boolean
+    }
+  ]
+  conversation: Int
+  messages: [
+    {
+      sender: Boolean,
+      message: String
+    }
+  ]
+}
+
+{type: 'conversations/getConversations'}
+{type: 'conversations/startConversation, payload: email}
+{type: 'conversation/openConversation', payload: index}
+{type: 'messages/sendMessage', payload: }

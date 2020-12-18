@@ -11,11 +11,11 @@ app.use(universalCookieExpress())
 app.use(bodyParser.json())
 
 const sequelize = new Sequelize(
-  'offer1',
-  'postgres',
-  null,
+  process.env.DB_DATABASE,
+  process.env.DB_USERNAME,
+  process.env.DB_PASSWORD,
   {
-    dialect: 'postgres',
+    dialect: process.env.DB_CONNECTION,
     logging: false
   }
 )

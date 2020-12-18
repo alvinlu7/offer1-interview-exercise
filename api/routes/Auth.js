@@ -1,4 +1,4 @@
-const AuthController = require('../../controllers/AuthController')
+const AuthController = require('../controllers/AuthController')
 
 exports.login = async (req, res) => {
   const { email, password } = req.body

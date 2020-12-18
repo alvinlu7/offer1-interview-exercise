@@ -10,6 +10,7 @@ const message = require('../message')
 const owner = require('../owner')
 const property = require('../property')
 const titleCompany = require('../titleCompany')
+const savedListing = require('../savedListing')
 const user = require('../user')
 const userCredentials = require('../userCredentials')
 const ROWS_TO_CREATE = 100
@@ -27,6 +28,7 @@ try {
   owner.generate(ROWS_TO_CREATE)
   property.generate(ROWS_TO_CREATE)
   titleCompany.generate(ROWS_TO_CREATE)
+  savedListing.generate(ROWS_TO_CREATE)
   user.generate(ROWS_TO_CREATE)
   userCredentials.generate(ROWS_TO_CREATE)
 

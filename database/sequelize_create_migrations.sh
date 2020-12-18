@@ -12,4 +12,5 @@ npx sequelize-cli model:generate --name userCredentials --attributes password:st
 npx sequelize-cli model:generate --name item --attributes name:string
 npx sequelize-cli model:generate --name includedItem --attributes listingId:integer,itemId:integer
 npx sequelize-cli model:generate --name excludedItem --attributes listingId:integer,itemId:integer
+npx sequelize-cli model:generate --name savedListing --attributes listingId:integer,userId:integer
 

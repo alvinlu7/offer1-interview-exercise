@@ -18,7 +18,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'recieverId',
       as: 'recievedMessages'
     })
-
+    user.hasMany(models.savedListing, {
+      sourceKey: 'id',
+      foreignKey: 'listingId',
+      as: 'savedListings'
+    })
   };
   return user;
 };

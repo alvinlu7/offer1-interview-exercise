@@ -12,4 +12,5 @@ npx sequelize-cli seed:generate --name messages
 npx sequelize-cli seed:generate --name listings
 npx sequelize-cli seed:generate --name excludedItems
 npx sequelize-cli seed:generate --name includedItems
+npx sequelize-cli seed:generate --name savedListings
 

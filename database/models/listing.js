@@ -19,6 +19,11 @@ module.exports = (sequelize, DataTypes) => {
       foreignKey: 'listingId',
       as: 'includedItems'
     })
+    listing.hasMany(models.savedListing, {
+      sourceKey: 'id',
+      foreignKey: 'listingId',
+      as: 'savedListings'
+    })
     listing.belongsTo(models.property, {
       foreignKey: 'propertyId',
       as: 'property'
