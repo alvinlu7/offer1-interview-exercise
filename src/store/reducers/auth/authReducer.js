@@ -8,6 +8,7 @@ const authReducer = (state = initialState, action) => {
     case '/auth/login': {
       return {
         loggedIn: true,
+        auth: action.payload,
         error: null
       }
     }

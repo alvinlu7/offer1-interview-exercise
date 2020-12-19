@@ -6,7 +6,9 @@ const port = 3001
 const bodyParser = require('body-parser')
 const universalCookieExpress = require('universal-cookie-express')
 const { Sequelize } = require('sequelize')
+const cors = require('cors')
 
+app.use(cors())
 app.use(universalCookieExpress())
 app.use(bodyParser.json())
 

@@ -1,33 +1,33 @@
-import api from '../../../../services/api'
-import { useCookies } from 'react-cookie'
+import api from '../../../services/api'
 
-export const login = (username, password) => {
+export const login = (email, password) => {
   return async dispatch => {
     try{
-      const { data: auth } = await api.post('/login', { username, password })
-      const [cookies, setCookie] = useCookies(['auth'])
-      api.defaults.headers.Authorization = `${auth.tokenType} ${auth.token}`
-      setCookie('auth', auth, {
-        maxAge: auth.expiresIn,
-        path: '/'
-      })
-      dispatch({ type: '/auth/login' })
+      const { data: auth } = await api.post('/login', { email, password })
+      dispatch({ type: '/auth/login', payload: auth})
     }
     catch(e){
       dispatch({
-        type: '/homes/error',
+        type: '/auth/error',
         payload: e.message
       })
     }
   }
 }
 
+export const updateLogin = (auth) => {
+  return {
+    type: '/auth/login',
+    payload: auth
+  }
+}
+
 export const logout = () => {
   return async dispatch => {
     try{
-      const [cookies, setCookie, removeCookie] = useCookies(['auth'])
-      delete api.defaults.headers.Authorization
-      removeCookie('auth')
+      // const [cookies, setCookie, removeCookie] = useCookies(['auth'])
+      // delete api.defaults.headers.Authorization
+      // removeCookie('auth')
       dispatch({ type: '/auth/logout' })
     }
     catch(e){
