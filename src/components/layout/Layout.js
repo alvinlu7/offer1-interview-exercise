@@ -11,9 +11,11 @@ const Layout = ({children, updateLogin, auth}) => {
   const [cookies, setCookie, removeCookie] = useCookies(['auth'])
 
   useEffect(()=> {
-    if(!auth.loggedIn && cookies.auth && cookies.auth.tokenType && cookies.auth.token){
+    if(cookies.auth && cookies.auth.tokenType && cookies.auth.tokenType){
       api.defaults.headers.Authorization = `${cookies.auth.tokenType} ${cookies.auth.token}`
-      updateLogin(cookies.auth)
+      if(!auth.loggedIn){
+        updateLogin(cookies.auth)
+      }
     }
   },[auth, cookies, updateLogin])
   

@@ -11,9 +11,9 @@ exports.login = async (req, res) => {
 }
 
 exports.register = async (req, res) => {
-  const { email, password } = req.body
+  const data = req.body
   try{
-    await AuthController.register(email, password)
+    await AuthController.register(data)
     res.status(201).end()
   } catch (error){
     res.status(422).send(error.message)

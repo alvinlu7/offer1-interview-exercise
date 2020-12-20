@@ -1,3 +1,10 @@
+export const openMenu = (type) => {
+  return {
+    type: '/filters/setOpenMenu',
+    payload: type
+  }
+}
+
 export const setCity = (city) => {
   return {
     type: '/filters/setCity',

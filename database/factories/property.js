@@ -16,7 +16,7 @@ module.exports = {
         numberBaths: Math.floor(Math.random()*5 + 1),
         description: faker.lorem.paragraph(),
         ownerType: ownerType[Math.floor(Math.random()*ownerType.length)],
-        primaryImageUrl: faker.image.city(),
+        primaryImageUrl: "https://cdn.wallpaper.com/main/2018/01/f_housep29.jpg",
         ownerId: Math.floor(Math.random() * ROWS_TO_CREATE + 1),
         addressId: Math.floor(Math.random() * ROWS_TO_CREATE + 1),
         createdAt: new Date(),

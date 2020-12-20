@@ -7,11 +7,18 @@ const initialState = {
   bathroomsMin: null,
   bathroomsMax: null,
   sqftMin: null,
-  sqftMax: null
+  sqftMax: null,
+  openMenu: null
 }
 
 const filtersReducer = (state = initialState, action) => {
   switch(action.type){
+    case '/filters/setOpenMenu': {
+      return {
+        ...state,
+        openMenu: action.payload
+      }
+    }
     case '/filters/setCity': {
       return {
         ...state,

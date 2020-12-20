@@ -7,9 +7,10 @@ export const login = (email, password) => {
       dispatch({ type: '/auth/login', payload: auth})
     }
     catch(e){
+      console.log(e)
       dispatch({
         type: '/auth/error',
-        payload: e.message
+        payload: 'Invalid credentials'
       })
     }
   }

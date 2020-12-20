@@ -5,6 +5,8 @@ import Homes from './pages/Homes'
 import Landing from './pages/Landing'
 import Detail from './pages/Detail'
 import Login from './pages/Login'
+import Register from './pages/Register'
+import Favorites from './pages/Favorites'
 
 function App() {
   return (
@@ -17,8 +19,14 @@ function App() {
           <Route path="/home/:id">
             <Detail/>
           </Route>
+          <Route path="/favorites">
+            <Favorites/>
+          </Route>
           <Route path="/login">
             <Login/>
+          </Route>
+          <Route path="/register">
+            <Register/>
           </Route>
           <Route path="/">
             <Landing/>

@@ -45,12 +45,12 @@ const Header = ({logout, auth}) => {
             </p>
           </Link>
         </div>
-        <div className="flex items-center justify-center">
-          <Link to="/">
+        <Link to="/">
+          <div className="flex items-center justify-center">
             <img src={Logo} width="50px" alt="logo" />
-          </Link>
-          <h1 className="font-serif text-4xl px-4 font-large">Offer1</h1>
-        </div>
+            <h1 className="font-serif text-4xl px-4 font-large">Offer1</h1>
+          </div>
+        </Link>
         <div className="flex items-center justify-end">
           {auth.loggedIn ? 
             <button

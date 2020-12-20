@@ -1,54 +1,62 @@
 import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
-import { login } from '../store/actions/auth/authActions'
-import { useCookies } from 'react-cookie'
 import api from '../services/api'
-import { useHistory, Link } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 
-const Login = ({login, auth}) => {
+const Register = () => {
 
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [phone, setPhone] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState(' ')
   const history = useHistory()
-  const [cookies, setCookie] = useCookies(['auth'])
 
-  const onLogin = () => {
+  const onRegister = () => {
     if(!email || !password){
       setError('Email and password required')
       return
     }
-    try{
-      login(email, password)
-    } catch(e){
-      setError(e.message)
-    }
-    
-  }
-
-  useEffect(()=> {
-    if(auth.error){
-      setError(auth.error)
-    }
-  }, [auth.error])
-
-  useEffect(()=> {
-    if(auth.loggedIn){
-      api.defaults.headers.Authorization = `${auth.tokenType} ${auth.token}`
-      setCookie('auth', auth.auth, {
-        maxAge: auth.auth.expiresIn,
-        path: '/'
+    api.post('/register', {
+      firstName,
+      lastName,
+      phone,
+      email, 
+      password
+    })
+      .then(res => {
+        history.replace('/login')
       })
-      history.replace('/homes')
-    }
-  },[auth, setCookie, history])
+      .catch(error => setError(error.message))
+  }
 
   return(
     <div className="flex h-screen bg-gradient-to-bl from-yellow-400 via-red-500 to-pink-500">
       <div className="flex flex-col shadow-2xl h-screen w-1/3 bg-gray-50">
-        <p className="mt-48 mb-32 mx-auto font-serif text-4xl font-light text-gray-600">
-          Sign in to get started
+        <p className="mt-32 mb-24 mx-auto font-serif text-3xl font-light text-gray-600">
+          Make an account to get started
         </p>
+        <input
+          className="mx-auto mb-2 rounded-md ring-yellow-500 border-2 focus:ring-2 focus:outline-none w-64 px-4 py-2"
+          type="name"
+          placeholder="First Name"
+          value={firstName}
+          onChange={(event) => setFirstName(event.target.value)}
+        />
+        <input
+          className="mx-auto mb-2 rounded-md ring-yellow-500 border-2 focus:ring-2 focus:outline-none w-64 px-4 py-2"
+          type="name"
+          placeholder="Last Name"
+          value={lastName}
+          onChange={(event) => setLastName(event.target.value)}
+        />
+        <input
+          className="mx-auto mb-2 rounded-md ring-yellow-500 border-2 focus:ring-2 focus:outline-none w-64 px-4 py-2"
+          type="phone"
+          placeholder="Phone number"
+          value={phone}
+          onChange={(event) => setPhone(event.target.value)}
+        />
         <input
           className="mx-auto mb-2 rounded-md ring-yellow-500 border-2 focus:ring-2 focus:outline-none w-64 px-4 py-2"
           type="email"
@@ -65,18 +73,12 @@ const Login = ({login, auth}) => {
         />
         <button
           className="mx-auto mb-4 rounded-md bg-yellow-500 text-white py-2 px-4 w-64 focus:opacity-90 focus:outline-none"
-          onClick={onLogin}
+          onClick={onRegister}
         >
-          Sign in
+          Register
         </button>
         <p className="mx-auto font-sans text-sm mb-8 text-red-500">
           {error}
-        </p>
-        <p className="mt-16 mx-auto font-serif text-xl font-light text-gray-600">
-          Don't have an account? 
-          <Link to='/register'>
-            <span className="text-blue-500"> Sign up now!</span>
-          </Link>
         </p>
       </div>
       <div className="flex flex-col h-screen w-2/3">
@@ -94,6 +96,4 @@ const Login = ({login, auth}) => {
   )
 }
 
-const mapStateToProps = (state) => ({auth: state.auth})
-
-export default connect(mapStateToProps, {login})(Login)
+export default Register

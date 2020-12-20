@@ -25,9 +25,19 @@ const sequelize = new Sequelize(
 sequelize.sync()
 
 const Auth = require('./routes/Auth')
+const Listing = require('./routes/Listings')
+const Message = require('./routes/Messages')
+const { withAuth } = require('./middleware/with-auth')
 
 app.post('/api/login', Auth.login)
 app.post('/api/register', Auth.register)
+app.get('/api/homes', withAuth(Listing.getHomes, true))
+app.get('/api/home', Listing.getHome)
+app.post('/api/homes/toggleSave', withAuth(Listing.toggleSavedHome, false))
+app.get('/api/homes/favorites', withAuth(Listing.getFavorites, false))
+app.get('/api/messages/getConversation', withAuth(Message.getConversation, false))
+app.get('/api/messages/getConversations', withAuth(Message.getConversations, false))
+app.post('/api/messages/createMessage', withAuth(Message.createMessage, false))
 
 app.listen(port, () => {
   console.log(`Backend listening at http://localhost:${port}`)

@@ -54,6 +54,9 @@ module.exports = {
         expiresIn,
       }
     }
+    else{
+      throw new Error('Invalid credentials')
+    }
   },
 
   /**
@@ -63,7 +66,8 @@ module.exports = {
    * @param email The user's email
    * @param password The user's password
    */
-  register: async (email, password) => {
+  register: async (data) => {
+    let {firstName, lastName, email, phone, password} = data
     email = email.toLowerCase()
     password = await bcrypt.hash(password, 8)
 
@@ -74,7 +78,10 @@ module.exports = {
     if (existingUser) throw new Error('Email already exists')
 
     const user = await User.create({
-      email
+      firstName,
+      lastName,
+      email,
+      phone
     })
 
     await UserCredentials.create({
