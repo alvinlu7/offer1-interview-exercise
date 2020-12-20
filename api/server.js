@@ -27,6 +27,7 @@ sequelize.sync()
 const Auth = require('./routes/Auth')
 const Listing = require('./routes/Listings')
 const Message = require('./routes/Messages')
+const User = require('./routes/Users')
 const { withAuth } = require('./middleware/with-auth')
 
 app.post('/api/login', Auth.login)
@@ -38,6 +39,7 @@ app.get('/api/homes/favorites', withAuth(Listing.getFavorites, false))
 app.get('/api/messages/getConversation', withAuth(Message.getConversation, false))
 app.get('/api/messages/getConversations', withAuth(Message.getConversations, false))
 app.post('/api/messages/createMessage', withAuth(Message.createMessage, false))
+app.get('/api/users/checkUserByEmail', User.checkUserByEmail)
 
 app.listen(port, () => {
   console.log(`Backend listening at http://localhost:${port}`)

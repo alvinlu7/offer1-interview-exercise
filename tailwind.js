@@ -349,6 +349,7 @@ module.exports = {
       '3/6': '50%',
       '4/6': '66.666667%',
       '5/6': '83.333333%',
+      '4/5vh': '80vh',
       full: '100%',
       screen: '100vh',
     }),
@@ -460,11 +461,13 @@ module.exports = {
     }),
     minHeight: {
       0: '0px',
+      '4/5': '80vh', 
       full: '100%',
       screen: '100vh',
     },
     minWidth: {
       0: '0px',
+      '4/5': '80vh',
       full: '100%',
       min: 'min-content',
       max: 'max-content',

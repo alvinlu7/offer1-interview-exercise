@@ -62,6 +62,11 @@ const Login = ({login, auth}) => {
           placeholder="Password"
           value={password}
           onChange={(event) => setPassword(event.target.value)}
+          onKeyEnter={(event) => {
+            if(event.key === 'Enter'){
+              onLogin()
+            }
+          }}
         />
         <button
           className="mx-auto mb-4 rounded-md bg-yellow-500 text-white py-2 px-4 w-64 focus:opacity-90 focus:outline-none"

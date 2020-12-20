@@ -2,9 +2,11 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { getHome } from '../store/actions/home/homeActions'
+import { useHistory } from 'react-router-dom'
 
 const Detail = ({home, getHome}) => {
   const { id } = useParams()
+  const history = useHistory()
 
   useEffect(()=> {
     getHome(id)
@@ -52,6 +54,7 @@ const Detail = ({home, getHome}) => {
         <button
           type="button"
           className="w-5/6 mx-auto my-4 rounded-md px-4 py-1 bg-yellow-500 text-base font-light text-white hover:opacity-90 focus:outline-none"
+          onClick={()=>history.replace(`/messages/${home.listingAgent.user.email}`)}
         >
           Contact Agent
         </button>
