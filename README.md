@@ -23,7 +23,7 @@ Change DB_USER and DB_PASSWORD to your PostgreSQL credentials
 Edit ./config/database.json:
 Under "development", change username and password to your PostgreSQL credentials
 
-Run the following commands to initialze and seed the database with test data
+Run the following commands to initialize and seed the database with test data
 ```
 npm run migrate
 npm run seed
