@@ -38,7 +38,7 @@
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "concurrently --kill-others 'nodemon ./api/server.js' 'npm run watch:css && react-scripts start'",
+    "start": "concurrently --kill-others \"nodemon ./api/server.js\" \"npm run watch:css && react-scripts start\"",
     "build": "npm run watch:css && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
