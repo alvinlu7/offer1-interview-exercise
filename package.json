@@ -33,6 +33,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-thunk": "^2.3.0",
     "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0",
     "universal-cookie-express": "^4.0.3",
     "web-vitals": "^0.2.4"
   },
